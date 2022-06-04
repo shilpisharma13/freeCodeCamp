@@ -1,6 +1,15 @@
 /*Return Largest Numbers in Arrays
 Return an array consisting of the largest number from each provided sub-array. For simplicity, the provided array will contain exactly 4 sub-arrays.*/
-const largestOfFour = (arr) => Math.max(...arr.flat());
+
+//1. find the largest number
+//2. find the nested-array containing the largest number
+//3. find the index of the nested-array
+
+const largestOfFour = (arr) => {
+  const newArr = [];
+  arr.forEach((el) => newArr.push(Math.max(...el)));
+  return newArr;
+};
 
 console.log(
   largestOfFour([
