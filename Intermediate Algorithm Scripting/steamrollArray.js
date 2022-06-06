@@ -1,14 +1,18 @@
 //Steamroller- Flatten a nested array. You must account for varying levels of nesting.
 
-function steamrollArray(arr) {
-  const newArr = [];
-  if (arr === []) return [];
+const steamrollArray = (arr) => {
+  const flatArr = [].concat(...arr);
+  return flatArr.some(Array.isArray) ? steamrollArray(flatArr) : flatArr;
+};
 
-  arr.map((el) => {
-    if (typeof el === "number") newArr.push(el);
-  });
-  newArr = arr.push(arr);
-  console.log(arr);
-}
-
-console.log(steamrollArray([1, [2]]));
+// const steamrollArray = (arr, newArr = []) => {
+//   arr.forEach((element) => {
+//     console.log(element);
+//     if (typeof element === "number") newArr.push(element);
+//     else steamrollArray(element, newArr);
+//   });
+//   return newArr;
+// };
+console.log(steamrollArray([1, [2], [3, [4]]]));
+// const arr = [[3, [4]]];
+// console.log(...arr);
